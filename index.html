@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>曼谷極樂 2025 - 完整行程地圖版</title>
+    <title>曼谷極樂之旅 2026 - 最終正確日期版</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f4f7f9; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f4f7f9; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .nav-btn.active { color: #6366f1; border-bottom: 3px solid #6366f1; font-weight: bold; }
-        #map { height: 650px; width: 100%; border-radius: 1.5rem; z-index: 1; border: 2px solid #e2e8f0; }
+        #map { height: 600px; width: 100%; border-radius: 1.5rem; z-index: 1; border: 2px solid #e2e8f0; }
         
-        /* 地圖標籤樣式 */
+        /* 地圖標籤樣式 - 直接顯示名稱 */
         .map-label {
             background: white; border: 1px solid #6366f1; border-radius: 4px; padding: 2px 6px;
             font-size: 11px; font-weight: bold; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -31,7 +31,7 @@
 
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-[1000]">
         <div class="max-w-5xl mx-auto px-4 flex justify-between items-center h-16">
-            <h1 class="font-black text-xl bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">BKK 2025</h1>
+            <h1 class="font-black text-xl bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">BKK 2026</h1>
             <div class="flex space-x-6 text-sm">
                 <button onclick="showSection('itinerary')" class="nav-btn active py-5">每日行程/預算</button>
                 <button onclick="showSection('map-page')" class="nav-btn py-5" onclick="initMapOnce()">互動全圖</button>
@@ -43,130 +43,128 @@
     <main class="max-w-4xl mx-auto px-4 pt-24">
         
         <section id="itinerary" class="tab-content active space-y-8">
-            
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-                <h2 class="text-lg font-bold mb-4 flex items-center">📊 預估每日支出分析 (THB/人)</h2>
+                <h2 class="text-lg font-bold mb-4 flex items-center">📊 2026 每日預算分析 (THB/人)</h2>
                 <div class="h-[250px]">
                     <canvas id="budgetStackedChart"></canvas>
                 </div>
-                <div class="grid grid-cols-3 gap-2 mt-4 text-[10px] text-center">
-                    <div class="bg-indigo-50 p-2 rounded">交通 (Trans)</div>
-                    <div class="bg-rose-50 p-2 rounded">吃喝 (Food)</div>
-                    <div class="bg-amber-50 p-2 rounded">玩樂 (Fun/SPA)</div>
-                </div>
+                <p class="text-[11px] text-slate-400 mt-4 italic text-center">※ 包含：吃喝(Food)、玩樂按摩(Fun)、交通(Trans)。</p>
             </div>
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
                 <div class="bg-indigo-600 p-4 text-white flex justify-between items-center">
-                    <h3 class="font-bold text-lg">Day 1 - 2/05 (三) 抵達曼谷</h3>
+                    <span class="font-bold text-lg">Day 1 - 2/05 (週四) 抵達曼谷</span>
                     <span class="text-sm bg-white/20 px-3 py-1 rounded-full">預估：2,300 THB</span>
                 </div>
-                <div class="p-6 space-y-5">
+                <div class="p-6 space-y-4">
                     <div class="border-l-4 border-indigo-200 pl-4">
-                        <p class="font-bold text-indigo-600">18:30 | 飯店集結 (Amara Bangkok)</p>
-                        <p class="text-sm text-slate-600">Ryan (16:45 抵達) 先辦入住。Jeff & 冷汗 (17:30 抵達) 搭車前來會合。</p>
+                        <p class="font-bold text-indigo-600 text-sm">18:30 | 飯店集結 (Amara Bangkok)</p>
+                        <p class="text-sm text-slate-600">三位團員會合。Ryan 先辦理入住，Jeff 與冷汗隨後抵達。</p>
                     </div>
-                    <div class="bg-orange-50 p-4 rounded-2xl border-l-4 border-orange-400">
-                        <p class="font-bold text-orange-600 italic underline">★ 餓鬼第一餐：Somtum Der (Silom)</p>
-                        <p class="text-sm text-slate-600 mt-1">步行 8 分鐘。下飛機首選！米其林推薦的道地泰式熱炒，炸雞與沙拉能迅速補充能量。</p>
+                    <div class="border-l-4 border-orange-400 pl-4 bg-orange-50/50 py-2">
+                        <p class="font-bold text-orange-600 text-sm">19:30 | 美食首選：Somtum Der Silom</p>
+                        <p class="text-sm text-slate-600">下飛機的第一餐，用米其林推薦的道地泰北菜開啟旅程。</p>
                     </div>
                     <div class="text-sm text-slate-600 space-y-2">
-                        <p><b>21:30 | Prime Massage</b>: 飯店附近評分極高的專業按摩。</p>
-                        <p><b>23:00 | Patpong 區探索</b>: 包含 Jupiter 與 Dream Boy 的夜色文化體驗。</p>
+                        <p><b>21:30 | Prime Massage</b>: 在 Silom 區享受高品質按摩，消除飛行疲勞。</p>
+                        <p><b>23:00 | Patpong 夜生活</b>: 散步體驗周邊 Gogoboy 文化與酒精。</p>
                     </div>
                 </div>
             </div>
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
                 <div class="bg-indigo-500 p-4 text-white flex justify-between items-center">
-                    <h3 class="font-bold text-lg">Day 2 - 2/06 (四) 三溫暖熱力</h3>
+                    <span class="font-bold text-lg">Day 2 - 2/06 (週五) 市中心熱力</span>
                     <span class="text-sm bg-white/20 px-3 py-1 rounded-full">預估：2,600 THB</span>
                 </div>
                 <div class="p-6 space-y-4 text-sm text-slate-600">
-                    <p><b>11:00 | 四面佛參拜</b>: 位於市中心，祈求旅途平安。隨後可於 Siam 區商場用餐。</p>
-                    <p><b>15:00 | R3 Sauna</b>: 曼谷經典同志三溫暖，設施豐富，下午人潮開始湧現。</p>
-                    <p><b>23:00 | DJ Station</b>: Silom Soi 2 最強夜店，11:30 有經典表演秀。</p>
+                    <p><b>11:00 | 四面佛參拜</b>: 位於市中心，泰國最靈驗的信仰中心。</p>
+                    <p><b>15:00 | R3 Sauna</b>: 曼谷經典三溫暖，週五下午人潮眾多。</p>
+                    <p><b>23:00 | DJ Station</b>: Silom Soi 2 的週末夜開始升溫，必看 Drag Show。</p>
                 </div>
             </div>
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border-2 border-indigo-100">
                 <div class="bg-indigo-400 p-4 text-white flex justify-between items-center">
-                    <h3 class="font-bold text-lg">Day 3 - 2/07 (五) 河畔夕陽與 SPA</h3>
+                    <span class="font-bold text-lg">Day 3 - 2/07 (週六) ICONSIAM 與 GOD</span>
                     <span class="text-sm bg-white/20 px-3 py-1 rounded-full">預估：4,000 THB</span>
                 </div>
                 <div class="p-6 space-y-5">
                     <div class="bg-indigo-50 p-4 rounded-xl border-l-4 border-indigo-400">
-                        <p class="font-bold text-indigo-700 underline">★ 重點：ICONSIAM + 採買完成</p>
+                        <p class="font-bold text-indigo-700">★ 重點：ICONSIAM 採買完成</p>
                         <p class="text-sm text-slate-600 mt-1">
-                            不跑 Big C，在 <b>ICONSIAM (B1 Dear Tummy 超市)</b> 搞定所有伴手禮與零食。
-                            午餐推薦 1F 的室內水上市場 (SookSiam)。
+                            在 <b>Dear Tummy (B1)</b> 超市搞定伴手禮。午餐可在 SookSiam 解決。
                         </p>
                     </div>
                     <div class="text-sm text-slate-600 space-y-2">
-                        <p><b>17:30 | 鄭王廟夕陽</b>: 搭渡輪跨河，拍攝金光熠熠的大塔。</p>
-                        <p><b>20:30 | The Prince-spa</b>: 享受頂級 SPA 服務，為夜晚戰鬥蓄電。</p>
-                        <p><b>23:30 | G.O.D (Guys on Display)</b>: 週末夜必去的肌肉男與酒精戰場。</p>
+                        <p><b>17:30 | 鄭王廟 Wat Arun</b>: 拍下最美的夕陽塔群背景。</p>
+                        <p><b>20:30 | The Prince-spa</b>: 五星級 SPA 體驗。</p>
+                        <p><b>23:30 | G.O.D</b>: 週六夜是 GOD 的巔峰，音樂與肌肉男的天堂。</p>
                     </div>
                 </div>
             </div>
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
                 <div class="bg-indigo-300 p-4 text-white flex justify-between items-center">
-                    <h3 class="font-bold text-lg">Day 4 - 2/08 (六) 週末最終狂歡</h3>
+                    <span class="font-bold text-lg">Day 4 - 2/08 (週日) 最終極樂</span>
                     <span class="text-sm bg-white/20 px-3 py-1 rounded-full">預估：3,400 THB</span>
                 </div>
                 <div class="p-6 space-y-4 text-sm text-slate-600">
-                    <p><b>11:00 | 洽圖洽週末市集</b>: 曼谷最大露天市集，購買泰式風格衣物。</p>
-                    <p><b>16:00 | Chakran Sauna</b>: 週六下午是 Chakran 的巔峰時段，不容錯過。</p>
-                    <p><b>22:00 | Hot Male Bar</b>: 阿里區知名酒吧，以高品質表演與氣氛著稱。</p>
+                    <p><b>11:00 | 洽圖洽週末市集</b>: 週日市集規模最完整，最後採買泰式服飾。</p>
+                    <p><b>16:00 | Chakran Sauna</b>: 週日是 Chakran 最受歡迎的時段。</p>
+                    <p><b>22:00 | Hot Male Bar</b>: 位於阿里區，欣賞高標準的鋼管與猛男表演。</p>
                 </div>
+            </div>
+
+            <div class="bg-slate-200 p-4 rounded-2xl text-center text-slate-600 text-sm">
+                Day 5 - 2/09 (週一) 悠閒早餐與歸途。
             </div>
         </section>
 
         <section id="map-page" class="tab-content space-y-4">
             <div class="bg-white p-5 rounded-3xl shadow-sm border">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">📍 互動導航全圖 (已包含 12 個標註點)</h2>
-                    <span class="text-[10px] bg-slate-100 px-2 py-1 rounded">機場在最右側 (東邊)</span>
+                    <h2 class="text-xl font-bold">📍 2026 互動導航地圖</h2>
+                    <span class="text-[10px] bg-slate-100 px-2 py-1 rounded">機場在右側遠處</span>
                 </div>
                 <div id="map"></div>
-                <div class="mt-4 flex flex-wrap gap-4 justify-center">
-                    <span class="flex items-center text-[10px]"><span class="w-2 h-2 bg-red-500 mr-1"></span>機場</span>
-                    <span class="flex items-center text-[10px]"><span class="w-2 h-2 bg-blue-600 mr-1"></span>飯店</span>
-                    <span class="flex items-center text-[10px]"><span class="w-2 h-2 bg-emerald-500 mr-1"></span>SPA/按摩</span>
-                    <span class="flex items-center text-[10px]"><span class="w-2 h-2 bg-indigo-500 mr-1"></span>三溫暖/夜生活</span>
+                <div class="mt-4 flex flex-wrap gap-3">
+                    <span class="flex items-center text-[10px] font-bold"><span class="w-3 h-3 bg-red-500 rounded-full mr-1"></span>機場</span>
+                    <span class="flex items-center text-[10px] font-bold"><span class="w-3 h-3 bg-blue-600 rounded-full mr-1"></span>飯店</span>
+                    <span class="flex items-center text-[10px] font-bold"><span class="w-3 h-3 bg-emerald-500 rounded-full mr-1"></span>SPA/按摩</span>
+                    <span class="flex items-center text-[10px] font-bold"><span class="w-3 h-3 bg-indigo-500 rounded-full mr-1"></span>熱點設施</span>
                 </div>
             </div>
         </section>
 
         <section id="tips" class="tab-content">
             <div class="bg-white p-8 rounded-3xl shadow-sm border">
-                <h2 class="text-xl font-bold text-red-500 mb-4">💡 旅遊小叮嚀</h2>
-                <ul class="space-y-3 text-sm text-slate-600">
-                    <li class="flex items-start"><span class="mr-2">✔️</span> 下載 Grab/Bolt，曼谷尖峰時間建議搭 BTS 以免塞在路中心。</li>
-                    <li class="flex items-start"><span class="mr-2">✔️</span> 進入寺廟（鄭王廟、四面佛）服裝需莊重，遮住肩膀與過膝。</li>
-                    <li class="flex items-start"><span class="mr-2">✔️</span> 貴重物品在 G.O.D 或 DJ Station 這種擠擁場所請務必貼身保管。</li>
-                    <li class="flex items-start"><span class="mr-2">✔️</span> 保持水分補充，曼谷熱浪很強。</li>
-                </ul>
+                <h2 class="text-xl font-bold text-red-500 mb-4">行前提醒</h2>
+                <div class="text-sm space-y-2 text-slate-600">
+                    <p>● 2026/02/05 (週四) 記得提早預約 The Prince-spa。</p>
+                    <p>● 鄭王廟進入時請勿穿著短褲背心。</p>
+                    <p>● 準備好 Grab / Bolt App，建議綁定信用卡。</p>
+                </div>
             </div>
         </section>
 
     </main>
 
     <script>
-        // 切換分頁邏輯
+        // 切換頁面邏輯
         function showSection(id) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             event.currentTarget.classList.add('active');
+            
             if(id === 'map-page') {
                 setTimeout(() => { map.invalidateSize(); initMapOnce(); }, 300);
             }
             window.scrollTo(0, 0);
         }
 
-        // --- Chart.js 預算堆疊圖 ---
+        // --- Chart.js ---
         const ctx = document.getElementById('budgetStackedChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
@@ -175,25 +173,24 @@
                 datasets: [
                     { label: '交通 Trans', data: [500, 300, 600, 400], backgroundColor: '#818cf8' },
                     { label: '吃喝 Food', data: [800, 1000, 1200, 1000], backgroundColor: '#fb7185' },
-                    { label: '玩樂 Fun/SPA', data: [1000, 1300, 2200, 2000], backgroundColor: '#fbbf24' }
+                    { label: '玩樂/SPA Fun', data: [1000, 1300, 2200, 2000], backgroundColor: '#fbbf24' }
                 ]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
                 plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
-                scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true } }
+                scales: { x: { stacked: true }, y: { stacked: true } }
             }
         });
 
-        // --- Leaflet 互動地圖核心邏輯 ---
+        // --- Leaflet ---
         var map = L.map('map').setView([13.7367, 100.5231], 12);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
-        // 指定的所有 12 個地點
-        const locations = [
-            { name: "BKK 機場", coords: [13.6895, 100.7501], type: 'airport' },
+        const markers = [
+            { name: "機場 BKK", coords: [13.6895, 100.7501], type: 'airport' },
             { name: "Amara Bangkok (飯店)", coords: [13.7301, 100.5282], type: 'hotel' },
             { name: "Prime Massage", coords: [13.7288, 100.5312], type: 'spa' },
             { name: "四面佛", coords: [13.7443, 100.5404] },
@@ -201,7 +198,7 @@
             { name: "DJ Station", coords: [13.7291, 100.5340] },
             { name: "鄭王廟 Wat Arun", coords: [13.7437, 100.4883] },
             { name: "The Prince-spa", coords: [13.7725, 100.5420], type: 'spa' },
-            { name: "G.O.D (夜店)", coords: [13.7286, 100.5338] },
+            { name: "G.O.D", coords: [13.7286, 100.5338] },
             { name: "洽圖洽週末市集", coords: [13.7999, 100.5505] },
             { name: "Chakran Sauna", coords: [13.7785, 100.5441] },
             { name: "Hot Male Bar", coords: [13.7845, 100.5443] }
@@ -210,26 +207,24 @@
         let hasInitMarkers = false;
         function initMapOnce() {
             if (hasInitMarkers) return;
-            locations.forEach(loc => {
+            markers.forEach(m => {
                 let labelClass = "map-label";
-                if(loc.type === 'airport') labelClass += " airport-label";
-                if(loc.type === 'hotel') labelClass += " hotel-label";
-                if(loc.type === 'spa') labelClass += " spa-label";
+                if(m.type === 'airport') labelClass += " airport-label";
+                if(m.type === 'hotel') labelClass += " hotel-label";
+                if(m.type === 'spa') labelClass += " spa-label";
 
-                // 標記與文字標籤
                 var labelIcon = L.divIcon({
-                    className: 'custom-div-icon',
-                    html: `<div class="${labelClass}">${loc.name}</div>`,
+                    className: 'custom-icon',
+                    html: `<div class="${labelClass}">${m.name}</div>`,
                     iconSize: [120, 24],
                     iconAnchor: [60, -10]
                 });
 
-                L.marker(loc.coords).addTo(map);
-                L.marker(loc.coords, {icon: labelIcon}).addTo(map);
+                L.marker(m.coords).addTo(map);
+                L.marker(m.coords, {icon: labelIcon}).addTo(map);
             });
-
-            // 聚焦於市區主要活動帶
-            const cityBounds = locations.filter(l => l.name !== "BKK 機場").map(l => l.coords);
+            
+            const cityBounds = markers.filter(m => m.type !== 'airport').map(m => m.coords);
             map.fitBounds(cityBounds, { padding: [50, 50] });
             hasInitMarkers = true;
         }
